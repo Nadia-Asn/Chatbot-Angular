@@ -37,11 +37,22 @@ export class ChatComponent {
       let x = this.movieService.fetchMovie(response).subscribe(
        data => {
         console.log("success");
-        this.conversation.push({
-        avatar: 'android',
-        from: 'Bot',
-        content: data.speech || "I can\'t seem to figure that out!"
-      });
+        if(response.result.fulfillment.speech != "") {
+            this.conversation.push({
+            avatar: 'android',
+            from: 'Bot',
+            content: response.result.fulfillment.speech || "I can\'t seem to figure that out!"
+          });
+
+        }if (response.result.fulfillment.speech == ""){
+            this.conversation.push({
+            avatar: 'android',
+            from: 'Bot',
+            content: data.speech || "I can\'t seem to figure that out!"
+        });
+          }
+
+    
           
       message.value = '';
          return true;
@@ -51,9 +62,6 @@ export class ChatComponent {
          return Observable.throw(error);
        }
     );
-      console.log("Reponse du webService => : " x)
-
     });
   }
-
 }
