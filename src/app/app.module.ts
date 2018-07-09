@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ChatService } from './services/chat.service';
 import { MovieService } from './movie.service';
 
 import { AppComponent } from './app.component';
@@ -19,7 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     MaterialModule
       ],
-  providers: [MovieService],
+  providers: [ChatService,MovieService],
   bootstrap: [AppComponent],
   entryComponents: [ ChatComponent ]
 })

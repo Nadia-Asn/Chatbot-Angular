@@ -4,7 +4,11 @@
     <h3 matLine> {{message.from}} </h3>
     <p matLine>
       <span> {{message.content}} </span>
-    </p>
+      <span *ngFor="let button of message.button">
+          <button  mat-icon-button (click)="addMessageFromUser(button)">
+              {{button}}</button>
+          </span>
+      </p>
   </mat-list-item>
 </mat-list>
 <form class="example-form">
@@ -13,7 +17,7 @@
            #message 
            maxlength="256" 
            placeholder="Message" 
-           (keyup.enter)="addMessageFromUser(message)">
-    <mat-icon matSuffix (click)="addMessageFromUser(message)">send</mat-icon>
+           (keyup.enter)="addMessageFromUser(message.value)"> {{value}}
+    <mat-icon matSuffix (click)="addMessageFromUser(message.value)">send</mat-icon>
   </mat-form-field>
 </form>

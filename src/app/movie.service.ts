@@ -14,14 +14,8 @@ export class MovieService {
 
     private apiUrl = 'http://localhost:8000/get-movie-details'; 
 
-	/*addHero (hero: String): Observable<String> {
-	  return this.http.post<String>(this.heroesUrl, hero, null)
-	    .pipe(
-	      
-	    );
-	}*/
-
 	   fetchMovie(movie) {
+
         	let body = JSON.stringify(movie);
         	let res = this.http.post(this.apiUrl, body, httpOptions);
         	console.log(res);

@@ -17,11 +17,9 @@ export class AppComponent implements OnInit{
 
   constructor(private movieService: MovieService){
   }
-
-
     ngOnInit(): void {
-    console.log("blablabalbal");
   }
 
   
+
 }
